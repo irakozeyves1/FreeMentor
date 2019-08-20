@@ -1,0 +1,120 @@
+body{
+	font-family:arial, sans-serif;
+	padding:0px;
+	margin:0px;
+	background-color:#f1f1f1;
+}
+a{
+	text-decoration: none;
+}
+
+header{
+background: #5DADE2;
+color:#ffffff;
+padding-top:20px;
+min-height:60px;
+border-bottom:Dodgerblue 1px solid;
+overflow:hidden;
+}
+header .upper{
+	color:white;
+	text-transform: uppercase;;
+	font-size:16px;
+}
+header li{
+	float:left;
+	display:inline-block;
+	padding: 0 20px 0 20px;
+}
+header .cont{
+	float:left;
+}
+header .cont h1{
+float:left;
+}
+
+header nav{
+	float:right;
+	margin-top:10px;
+}
+header a:hover{
+	color:#cccccc;
+	font-weight: bold;
+}
+header .cont, header .home a{
+	color:black;
+	font-weight: bold;
+}
+
+@media(max-width: 800px){
+  header .cont,
+  header nav,
+  header nav li,
+  }
+
+  #myInput {
+  background-image: url('../asset/icons/searchicon.png'); 
+  background-position: 10px 12px; 
+  background-repeat: no-repeat;
+  width: 100%; 
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd; 
+  margin-bottom: 10px; 
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 16px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2
+}
+.das{
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer; 
+}
+.dinfo {color: #2196F3;
+} 
+.dinfo:hover {
+	background: #0b7dda; color: white;
+}
+
+.ddanger {
+	color: #f44336;
+} 
+.ddanger:hover {
+	background: #da190b; color: white;
+}
+
+.info {
+	background-color: #2196F3;
+} 
+.info:hover {
+	background: #0b7dda;
+}
+
+.warning {
+	background-color: #ff9800;
+} 
+.warning:hover {
+	background: #e68a00;
+}
+
+.danger {
+	background-color: #f44336;
+} 
+.danger:hover {
+	background: #da190b;
+}
+

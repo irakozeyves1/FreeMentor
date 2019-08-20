@@ -1,0 +1,143 @@
+body{
+	background-color:#999966;
+}
+a{
+	text-decoration: none;
+}
+
+header{
+background: #5DADE2;
+color:#ffffff;
+padding-top:20px;
+min-height:60px;
+border-bottom:black 1px solid;
+overflow:hidden;
+}
+header .upper{
+	color:#ffffff;
+	text-transform: uppercase;;
+	font-size:16px;
+}
+header li{
+	float:left;
+	display:inline-block;
+	padding: 0 20px 0 20px;
+}
+header .cont{
+	float:left;
+}
+header .cont h1{
+float:left;
+}
+
+header nav{
+	float:right;
+	margin-top:10px;
+}
+header a:hover{
+	color:#cccccc;
+	font-weight: bold;
+}
+header .cont, header .home a{
+	color:black;
+	font-weight: bold;
+}
+
+ul.breadcrumb {
+    padding: 20px 20px;
+    list-style: none;
+    background-color:black;
+}
+
+@media(max-width: 800px,max-height: 1000px){
+  header .cont,
+  header nav,
+  header nav li,
+  }
+
+
+
+
+	.bg-img {
+  /* The image used */
+  background-image: url("../asset/images/sample.jpg");
+
+  /* Control the height of the image */
+  min-height: 1200px;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Add styles to the form container */
+.container1 {
+  position: absolute;
+  right: 0;
+  margin: 20px;
+  max-width: 400px;
+  padding: 16px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+  input[type=text], input[type=password],textarea {
+  width: 90%;
+  padding: 12px;
+  margin: 4px 0 20px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus, textarea:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit button */
+.btn {
+  background-color:DodgerBlue;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 90%;
+  opacity: 0.9;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+
+.signup{
+  border-bottom:DodgerBlue 1px solid;
+    text-align: center;
+    background-color:DodgerBlue;
+    padding: 20px 10px;
+    width:84.5%;
+}
+.signup h3{
+  color:#f1f1f1;
+  font-size: 22px;
+}
+span.checkbox{
+float: left;
+}
+a.paragraph{
+  color: red;
+}
+a{text-decoration: none;}
+.clear{
+  clear: both;
+}
+a.ln{
+  color: red;
+}
+.wrong-input{
+color:red;
+animation:shake 0.5s;
+animation-iteration-count: 2;
+}
