@@ -1,0 +1,99 @@
+body{
+	font-family:15px arial, sans-serif;
+	padding:0px;
+	margin:0px;
+	background-color:#E9F7EF;
+}
+a{
+	text-decoration: none;
+}
+
+header{
+background: #5DADE2;
+color:#ffffff;
+padding-top:20px;
+min-height:60px;
+border-bottom:black 1px solid;
+overflow:hidden;
+}
+header .upper{
+	color:#ffffff;
+	text-transform: uppercase;;
+	font-size:16px;
+}
+header li{
+	float:left;
+	display:inline-block;
+	padding: 0 20px 0 20px;
+}
+header .cont{
+	float:left;
+}
+header .cont h1{
+float:left;
+}
+
+header nav{
+	float:right;
+	margin-top:10px;
+}
+header a:hover{
+	color:#cccccc;
+	font-weight: bold;
+}
+header .cont, header .home a{
+	color:black;
+	font-weight: bold;
+}
+
+@media(max-width: 800px){
+  header .cont,
+  header nav,
+  header nav li,
+  }
+input[type=text], select, textarea, input[type=date]{
+  width: 95%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+.container1 {
+  border-radius: 5px;
+  background-color:white;
+  padding: 10px;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  margin-top: 6px;
+  padding: 20px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+
+}
+
+@media screen and (max-width: 600px) {
+  .column, input[type=submit] {
+    width: 95%;
+    margin-top: 0;
+  }
+}
