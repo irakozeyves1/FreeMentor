@@ -7,7 +7,7 @@ body{
 	font-family:15px arial, sans-serif;
 	padding:0px;
 	margin:0px;
-	background-color:#E9F7EF;
+	background-color:white;
 }
 a{
 	text-decoration: none;
@@ -17,8 +17,16 @@ footer{
 	padding:20px;
 	font-size:15px;
 	text-align: center;
+  font-weight: 70px;
 	background:#5DADE2;
 
+}
+footer .fa, .fab {
+  padding: 18px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
 }
 header{
 background: #5DADE2;
@@ -83,7 +91,7 @@ ul.breadcrumb {
   position: absolute;
   top:50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-60%,-60%);
 }
 .navigation{
 	position:absolute;
@@ -372,4 +380,15 @@ section{
     width: 120%;
     
   }
+}
+
+#yves{
+margin-top:600;
+
+}
+.high{
+  margin:10px;
+  font-weight: bold;
+  font-size :30px;
+
 }

@@ -52,7 +52,7 @@ header .cont, header .home a{
   header nav li,
   }
 input[type=text], select, textarea, input[type=date]{
-  width: 95%;
+  width: 180%;
   padding: 12px;
   border: 1px solid #ccc;
   margin-top: 6px;
@@ -72,9 +72,14 @@ input[type=submit]:hover {
   background-color: #45a049;
 }
 .container1 {
-  border-radius: 5px;
-  background-color:white;
-  padding: 10px;
+ position: absolute;
+right: 0;
+  margin: 20px;
+  max-width: 350px;
+  padding: 16px;
+  left:33%;
+  background-color: white;
+   border:5px solid black;
 }
 
 .column {

@@ -379,3 +379,11 @@ section{
     margin-bottom: 20px;
   }
 }
+
+footer .fa, .fab{
+   padding: 18px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+}
