@@ -1,5 +1,5 @@
 body{
-	background-color:#999966;
+	background-color:white;
 }
 a{
 	text-decoration: none;
@@ -80,8 +80,12 @@ ul.breadcrumb {
   margin: 20px;
   max-width: 400px;
   padding: 16px;
+  left:33%;
   background-color: white;
+   border:5px solid black;
 }
+
+
 
 /* Full-width input fields */
   input[type=text], input[type=password],textarea {
