@@ -14,56 +14,79 @@ export const session = (req, res) => {
 
 //A mentor can accept a mentorship session request
 export const accept = (req, res) => {
-	if (req.user.role == 'Mentor') {
-		const accep = sessions.findIndex(a => a.sessionId == req.params.sessionId);
 
-		if (accep > - 1) {
-			sessions[accep].status = 'Accept';
+	const accep = sessions.findIndex(a => a.sessionId == req.params.sessionId);
 
-			return res.status(202).send({
-				'status': 202,
-				'data': sessions[accep]
-			});
-		}
+	if (accep > - 1) {
+		sessions[accep].status = 'Accept';
 
-		return res.status(404).send({
-			'status': 404,
-			'message': 'No session of this specific id'
+		return res.status(202).send({
+			'status': 202,
+			'data': sessions[accep]
 		});
-
 	}
+
+	return res.status(404).send({
+		'status': 404,
+		'message': 'No session of this specific id'
+	});
+
+	
 };
 //A mentor can reject a mentorship session request.
 
 export const reject = (req, res) => {
-	if (req.user.role == 'Mentor') {
-		const rejec = sessions.findIndex(a => a.sessionId == req.params.sessionId);
+	
+	const rejec = sessions.findIndex(a => a.sessionId == req.params.sessionId);
 
-		if (rejec > -1) {
-			sessions[rejec].status = 'Reject';
+	if (rejec > -1) {
+		sessions[rejec].status = 'Reject';
 
-			return res.status(200).send({
-				'status': 200,
-				'data': sessions[rejec]
-			});
-		}
-		return res.status(501).send({
-			'status': 501,//Not implemented 501 status
-			'message': 'No session of this specific id'
+		return res.status(200).send({
+			'status': 200,
+			'data': sessions[rejec]
 		});
 	}
+	return res.status(501).send({
+		'status': 501,//Not implemented 501 status
+		'message': 'No session of this specific id'
+	});
+	
 };
+
+
 
 //Get all mentorship session requests
 export const getSessionById = (req, res) => {
 	
 	return res.status(200).send({
 		status: 200,
-		data :{
-			session
-		}
+		data :sessions
+		
 	});
 	
+};
+
+
+//Review a mentor after a mentorship session.
+export const review = (req, res) => {
+	const s = sessions.find(s => s.sessionId == req.params.sessionId);
+	if (s) {
+		const review = new reviews(s.sessionId, s.mentorId, req.user.userId, req.body.score, req.user.userFullName, req.body.remark);
+		reviews.push(review);
+		return res.status(201).send({
+			'status': 201,
+			'message': 'Session created successfully',
+			'data':session
+		});
+	} else {
+		return res.status(400).send({
+			'status': 400,
+			'message': 'Bad request'
+		});
+	}
+
+
 };
 
 
@@ -83,23 +106,3 @@ export const remove = (req, res) => {
 
 };
 
-//Review a mentor after a mentorship session.
-export const review = (req, res) => {
-	const s = sessions.find(s => s.sessionId == req.params.sessionId);
-	if (s && s.status != 'Rejected') {
-		const review = new reviews(s.sessionId, s.mentorId, req.user.userId, req.body.score, req.user.menteeFullName, req.body.remark);
-		reviews.push(review);
-		return res.status(201).send({
-			'status': 201,
-			'message': 'Session created successfully',
-			'data': review
-		});
-	} else {
-		return res.status(400).send({
-			'status': 400,
-			'message': 'Bad request'
-		});
-	}
-
-
-};

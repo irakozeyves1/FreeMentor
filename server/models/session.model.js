@@ -11,5 +11,6 @@ export class Session {
 	}
 }
 
+
 export let sessions = [];
 

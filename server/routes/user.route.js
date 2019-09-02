@@ -6,7 +6,7 @@ import { verifyToken } from '../middleware/token.middleware';
 import { session, accept, reject,getSessionById, remove, review  } from '../controllers/session.controller';
 
 const router = Router();
-
+// required api
 router.post('/auth/signup', validate, isEmailUsed, hashPassword, signup);
 router.post('/auth/signin', validate, authanticate, signin);
 router.patch('/user/:userId', verifyToken, isAdmin, updateMentor);
@@ -15,8 +15,10 @@ router.get('/mentors/:userId', getMentorId);
 router.post('/sessions', verifyToken, session);
 router.patch('/sessions/:sessionId/accept', verifyToken, accept);
 router.patch('/sessions/:sessionId/reject',verifyToken, reject);
+
+// extra  api 
 router.get('/sessions', getSessionById);
-router.post('/sessions/:sessionId/review', verifyToken, review);
+router.post('/sessions/:sessionId/reviews', verifyToken, review);
 router.delete('/sessions/:sessionId/review', verifyToken, remove);
 
 export default router;
