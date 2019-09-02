@@ -1,5 +1,6 @@
+[![Build Status](https://travis-ci.org/irakozeyves1/FreeMentor.svg?branch=develop)](https://travis-ci.org/irakozeyves1/FreeMentor)
+[![Coverage Status](https://coveralls.io/repos/github/irakozeyves1/FreeMentor/badge.svg?branch=develop)](https://coveralls.io/github/irakozeyves1/FreeMentor?branch=develop)
 ## FreeMentor
-
 
 
 Online FreeMentor app for the mentoring, this is an app where some one want a mentor can request a session for him or her 
