@@ -54,6 +54,7 @@ ul.breadcrumb {
   header .cont,
   header nav,
   header nav li,
+  container1
   }
 
 .bg-img {
@@ -78,7 +79,7 @@ ul.breadcrumb {
   margin:20px;
   width: 500px;
   padding: 10px;
-  left:33%;
+  left:50%;
   background-color: white;
   border:5px solid black;
 

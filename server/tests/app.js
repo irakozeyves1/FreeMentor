@@ -161,38 +161,73 @@ describe('', () => {
 	});
 });
 
-// //A mentor can accept a mentorship session request
+//A mentor can accept a mentorship session request
 
-// describe('Accept a session', () => {
-// 	it('', (done) => {
-// 		chai.request(server)
-// 			.patch('/api/v1/sessions/1/accept')
-// 			.set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImlyYWtvemV5dmVzQGdtYWlsLmNvbSIsImlhdCI6MTU2NzMwNDQ2NH0.JflaoVizfciIfegtDzMY3m_q55QRjKEa0uYdQHyUB0o')
-// 			.end((err, res) => {
-// 				chai.expect(res).to.have.status(202);
-// 				expect(res).to.be.an('object');
-// 				expect(res.body).to.have.property('data');
-// 				done();
-// 			});
-// 	});
-// 	it('No session of this specific id', (done) => {
-// 		chai.request(server)
-// 			.patch('/api/v1/sessions/10/accept')
-// 			.set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImlyYWtvemV5dmVzQGdtYWlsLmNvbSIsImlhdCI6MTU2NzMwNDQ2NH0.JflaoVizfciIfegtDzMY3m_q55QRjKEa0uYdQHyUB0o')
-// 			.end((err, res) => {
-// 				chai.expect(res).to.have.status(404);
-// 				expect(res).to.be.an('object');
-// 				expect(res.body).to.have.property('data');
-// 				done();
-// 			});
-// 	});
+describe('Accept a session', () => {
+	it('', (done) => {
+		chai.request(server)
+			.patch('/api/v1/sessions/1/accept')
+			.set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImlyYWtvemV5dmVzQGdtYWlsLmNvbSIsImlhdCI6MTU2NzMwNDQ2NH0.JflaoVizfciIfegtDzMY3m_q55QRjKEa0uYdQHyUB0o')
+			.end((err, res) => {
+				chai.expect(res).to.have.status(202);
+				expect(res).to.be.an('object');
+				expect(res.body).to.have.property('data');
+				done();
+			});
+	});
+	it('No session of this specific id', (done) => {
+		chai.request(server)
+			.patch('/api/v1/sessions/10/accept')
+			.set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImlyYWtvemV5dmVzQGdtYWlsLmNvbSIsImlhdCI6MTU2NzMwNDQ2NH0.JflaoVizfciIfegtDzMY3m_q55QRjKEa0uYdQHyUB0o')
+			.end((err, res) => {
+				chai.expect(res).to.have.status(404);
+				expect(res).to.be.an('object');
+				done();
+			});
+	});
 
-// });
-
+});
 
 
+//A mentor can reject a mentorship session request.
 
+describe('Reject a session', () => {
+	it('', (done) => {
+		chai.request(server)
+			.patch('/api/v1/sessions/1/reject')
+			.set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImlyYWtvemV5dmVzQGdtYWlsLmNvbSIsImlhdCI6MTU2NzMwNDQ2NH0.JflaoVizfciIfegtDzMY3m_q55QRjKEa0uYdQHyUB0o')
+			.end((err, res) => {
+				chai.expect(res).to.have.status(200);
+				expect(res).to.be.an('object');
+				expect(res.body).to.have.property('data');
+				done();
+			});
+	});
+	it('No session of this specific id', (done) => {
+		chai.request(server)
+			.patch('/api/v1/sessions/10/reject')
+			.set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImlyYWtvemV5dmVzQGdtYWlsLmNvbSIsImlhdCI6MTU2NzMwNDQ2NH0.JflaoVizfciIfegtDzMY3m_q55QRjKEa0uYdQHyUB0o')
+			.end((err, res) => {
+				chai.expect(res).to.have.status(501);
+				expect(res).to.be.an('object');
+				done();
+			});
+	});
 
+});
 
-
+//Get all mentorship session requests
+describe('', () => {
+	it('', (done) => {
+		chai.request(server)
+			.get('/api/v1//sessions')
+			.set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImlyYWtvemV5dmVzQGdtYWlsLmNvbSIsImlhdCI6MTU2NzMwNDQ2NH0.JflaoVizfciIfegtDzMY3m_q55QRjKEa0uYdQHyUB0o')
+			.end((req, res) => {
+				expect(res).to.have.status(200);
+				expect(res.body).to.have.property('data');
+				expect(res.body).to.have.property('status').eql(200);
+				done();
+			});
+	});
+});
 
