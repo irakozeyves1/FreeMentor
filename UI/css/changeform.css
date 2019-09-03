@@ -55,10 +55,9 @@ header .cont, header .home a{
 input[type=text],textarea{
   width: 100%;
   padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  resize: vertical;
+  margin: 4px 0 20px 0;
+  border: none;
+  background: #f1f1f1;
 }
 
 
@@ -68,30 +67,21 @@ label {
 }
 
 input[type=submit] {
-  background-color: #4CAF50;
+  background-color: #5DADE2;
   color: white;
   padding: 12px 20px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  float: right;
+  float: left;
 }
 
 .container1 {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-}
-.col-25 {
-  float: left;
-  width: 25%;
-  margin-top: 6px;
-}
-
-.col-75 {
-  float: left;
-  width: 75%;
-  margin-top: 6px;
+ margin:auto;
+ width: 30%;
+ padding: 10px;
+ background-color: white;
+ margin-top:10px;
 }
 
 .row:after {
@@ -101,8 +91,11 @@ input[type=submit] {
 }
 
 @media screen and (max-width: 600px) {
-  .col-25, .col-75, input[type=submit] {
+  input[type=submit] {
     width: 100%;
     margin-top: 0;
   }
+}
+.high{
+  padding:10px;
 }

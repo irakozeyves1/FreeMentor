@@ -52,16 +52,15 @@ header .cont, header .home a{
   header nav li,
   }
 input[type=text], select, textarea, input[type=date]{
-  width: 180%;
+  width: 100%;
   padding: 12px;
-  border: 1px solid #ccc;
-  margin-top: 6px;
-  margin-bottom: 16px;
-  resize: vertical;
+  margin: 4px 0 20px 0;
+  border: none;
+  background: #f1f1f1;
 }
 
 input[type=submit] {
-  background-color: #4CAF50;
+  background-color: #5DADE2;
   color: white;
   padding: 12px 20px;
   border: none;
@@ -72,19 +71,16 @@ input[type=submit]:hover {
   background-color: #45a049;
 }
 .container1 {
- position: absolute;
-right: 0;
-  margin: 20px;
-  max-width: 350px;
-  padding: 16px;
-  left:33%;
-  background-color: white;
-   border:5px solid black;
+ margin:auto;
+ width: 50%;
+ padding:10px;
+ background-color: white;
+ margin-top: 10px;
 }
 
 .column {
   float: left;
-  width: 50%;
+  width: 90%;
   margin-top: 6px;
   padding: 20px;
 }
@@ -100,5 +96,10 @@ right: 0;
   .column, input[type=submit] {
     width: 95%;
     margin-top: 0;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .container1{
+    width: 100%;
   }
 }

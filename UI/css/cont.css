@@ -1,6 +1,5 @@
 body{
 	font-family:15px arial, sans-serif;
-	padding:0px;
 	margin:0px;
 	background-color:white;
 }
@@ -57,15 +56,14 @@ header .cont, header .home a{
 /* Style inputs */
 input[type=text], select, textarea {
   width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  margin-top: 6px;
-  margin-bottom: 16px;
-  resize: vertical;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
 }
 
 input[type=submit] {
-  background-color: #4CAF50;
+  background-color:#5DADE2;
   color: white;
   padding: 12px 20px;
   border: none;
@@ -78,29 +76,25 @@ input[type=submit]:hover {
 
 /* Style the container/contact section */
 .container1 {
-  position: absolute;
-  right: 0;
-  margin: 20px;
-  max-width: 400px;
-  padding: 16px;
-  left:33%;
+  margin:auto;
+  width:37%;
   background-color: white;
-  border:5px solid black;
+  margin-top:5px;
 
  
 }
 #cont{
   text-align: center;
-  background-color: DodgerBlue;
+  background-color: #5DADE2;
   color:white;
 }
 
 /* Create two columns that float next to each other */
 .column {
   float: left;
-  width: 70%;
+  width: 96%;
   margin-top: 6px;
-  padding: 20px;
+  padding: 10px;
 }
 
 /* Clear floats after the columns */
@@ -114,8 +108,32 @@ input[type=submit]:hover {
 
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
-  .column, input[type=submit] {
+  .column,.container1{
     width: 100%;
     margin-top: 0;
   }
+}
+.high{
+  padding: 10px;
+}
+
+@media screen and (max-width: 600px) {
+ input[type=text], select, textarea , input[type=submit], .container1 {
+    width: 90%;
+    display: block;
+      }
+}
+.bg-img {
+  /* The image used */
+  background-image: url("../asset/images/sample.jpg");
+
+  /* Control the height of the image */
+  min-height: 1200px;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  box-sizing: border-box;
 }
