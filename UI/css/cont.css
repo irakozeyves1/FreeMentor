@@ -23,7 +23,7 @@ header .upper{
 	font-size:16px;
 }
 header li{
-	float:left;
+float:left;
 	display:inline-block;
 	padding: 0 20px 0 20px;
 }
