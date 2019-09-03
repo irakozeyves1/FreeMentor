@@ -58,6 +58,7 @@ header .cont, header .home a{
   background-repeat: no-repeat;
   border: 1px solid #ddd; 
   margin-left:5px;
+  margin-top: 10px;
 }
 
 #myTable {
@@ -100,6 +101,13 @@ header .cont, header .home a{
 	background-color: #e8491d;
 }
 
+.ddanger{
+  color: red;
+}
+.ddanger:hover {
+  background-color: red; color: white;
+}
+
 @media only screen and (max-width: 800px), (min-device-width:500px) and (max-device-width: 600px ) {
   table, th, td, tr { 
     display: relative; 
@@ -126,4 +134,7 @@ header .cont, header .home a{
   }
   
 
+}
+.high{
+  padding:10px;
 }

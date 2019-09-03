@@ -77,7 +77,7 @@ export const review = (req, res) => {
 		return res.status(201).send({
 			'status': 201,
 			'message': 'Session created successfully',
-			'data':session
+			'data':sessions
 		});
 	} else {
 		return res.status(400).send({
