@@ -1,9 +1,6 @@
 [![Build Status](https://travis-ci.org/irakozeyves1/FreeMentor.svg?branch=develop)](https://travis-ci.org/irakozeyves1/FreeMentor)
 [![Coverage Status](https://coveralls.io/repos/github/irakozeyves1/FreeMentor/badge.svg?branch=develop)](https://coveralls.io/github/irakozeyves1/FreeMentor?branch=develop)
 [![Maintainability](https://api.codeclimate.com/v1/badges/805c92b1e42416c146a5/maintainability)](https://codeclimate.com/github/irakozeyves1/FreeMentor/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/805c92b1e42416c146a5/test_coverage)](https://codeclimate.com/github/irakozeyves1/FreeMentor/test_coverage)
-
-
 ## FreeMentor
 
 
