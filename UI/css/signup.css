@@ -76,11 +76,10 @@ ul.breadcrumb {
 /* Add styles to the form container */
 .container1 {
   margin:auto;
-  width :25%;
+  width :40%;
   padding:10px;
   background-color: white;
   margin-top: 10px;
-  padding-left: 50px;
  
 }
 
@@ -146,7 +145,7 @@ animation-iteration-count: 2;
 }
 .signup{
   background-color: #5DADE2;
-  width:85%;
+  width:87%;
 }
 
 @media screen and (max-width: 800px) {
