@@ -58,7 +58,7 @@ export const isAdmin = (req, res, next) => {
 	} else {
 		return res.status(403).send({
 			'status': 403,
-			'message': 'You are not Admin.'
+			'error': 'You are not Admin.'
 		});
 	}
 };

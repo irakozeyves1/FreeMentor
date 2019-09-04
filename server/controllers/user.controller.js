@@ -11,7 +11,7 @@ export const signup = (req, res) => {
 		'status': 201,
 		'message': 'User created successfully',
 		'data': {
-			'userId': user.userId,
+			'id': user.id,
 			'token': token,
 			'message': 'User created successfully',
 		}
@@ -25,7 +25,6 @@ export const signin = (req, res) => {
 		'status': 200,
 		'message': 'User is successfully logged in',
 		'data': {
-			'userId': req.body.userId,
 			'token': token,
 		}
 	});
@@ -34,7 +33,7 @@ export const signin = (req, res) => {
 
 export const updateMentor = (req, res) => {
 
-	const index = users.findIndex(u => u.userId == req.params.userId);
+	const index = users.findIndex(u => u.id == req.params.userId);
 
 	if (index > -1) {
 		users[index].role = 'Mentor';
@@ -47,7 +46,7 @@ export const updateMentor = (req, res) => {
 
 	return res.status(401).send({
 		status:401,
-		message: 'Invalid user id'
+		error: 'Invalid user id'
 	});
 };
 
@@ -65,8 +64,7 @@ export const mentors = (req, res) => {
 
 //Get a specific mentor by it's id
 export const getMentorId = (req, res) => {
-	const user = users.find(u => u.userId  == req.params.userId);
-
+	const user = users.find(u => u.id  == req.params.userId);
 	if (user) {
 		return res.status(200).send({
 			'status': 200,
@@ -78,13 +76,3 @@ export const getMentorId = (req, res) => {
 		message: 'No record found'
 	});
 };
-
-
-
-
-
-
-
-
-
-
