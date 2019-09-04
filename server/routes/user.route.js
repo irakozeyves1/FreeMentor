@@ -3,22 +3,21 @@ import { signin, signup, updateMentor, mentors, getMentorId } from '../controlle
 import { validate } from '../middleware/validation.middleware';
 import { isEmailUsed, hashPassword, authanticate, isAdmin } from '../middleware/user.middleware';
 import { verifyToken } from '../middleware/token.middleware';
-import { session, accept, reject,getSessionById, remove, review  } from '../controllers/session.controller';
+import { session, accept, reject,getSessionById, remove } from '../controllers/session.controller';
 
 const router = Router();
 // required api
-router.post('/auth/signup', validate, isEmailUsed, hashPassword, signup);
-router.post('/auth/signin', validate, authanticate, signin);
-router.patch('/user/:userId', verifyToken, isAdmin, updateMentor);
-router.get('/mentor', verifyToken, mentors);
-router.get('/mentors/:userId', getMentorId);
-router.post('/sessions', verifyToken, session);
-router.patch('/sessions/:sessionId/accept', verifyToken, accept);
-router.patch('/sessions/:sessionId/reject',verifyToken, reject);
+router.post('/auth/signup', validate, isEmailUsed, hashPassword, signup);//Create useraccount
+router.post('/auth/signin', validate, authanticate, signin);//Login a user
+router.patch('/user/:userId', verifyToken, isAdmin, updateMentor);//Change a user to a mentor
+router.get('/mentors', verifyToken, mentors);//Get all mentors
+router.get('/mentors/:userId',verifyToken ,getMentorId);//Get a specific mentor
+router.post('/sessions', verifyToken, session);//Create a mentorship session request
+router.patch('/sessions/:sessionId/accept', verifyToken, accept);//A mentor can accept a mentorship session request
+router.patch('/sessions/:sessionId/reject',verifyToken, reject);//A mentor can reject a mentorship session request
 
 // extra  api 
-router.get('/sessions', getSessionById);
-router.post('/sessions/:sessionId/reviews', verifyToken, review);
-router.delete('/sessions/:sessionId/review', verifyToken, remove);
+router.get('/sessions', getSessionById);//Get all mentorship session requests both mentor / mentee
+router.delete('/sessions/:sessionId/review', verifyToken,isAdmin, remove);//Admin can delete mentorship session review deemed inappropriate
 
 export default router;

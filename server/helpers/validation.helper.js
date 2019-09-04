@@ -2,8 +2,8 @@ import Joi from '@hapi/joi';
 
 const signupSchema = {
 	email: Joi.string().strict().trim().min(3).required().email(),
-	first_name: Joi.string().strict().trim().min(3).required(),
-	last_name: Joi.string().strict().trim().min(3).required(),
+	firstname: Joi.string().strict().trim().min(3).required(),
+	lastname: Joi.string().strict().trim().min(3).required(),
 	password: Joi.string().strict().trim().min(6).required(),
 	address: Joi.string().strict().trim().min(3).required(),
 	bio: Joi.string().strict().trim().min(3).required(),
