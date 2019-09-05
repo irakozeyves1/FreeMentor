@@ -56,7 +56,7 @@ like localhost:3000/api/v1
 | /api/v1/sessions | GET | get all session for user(menteee ) and for mentor |
 | /api/v1/sessions/:sessionId/review| DELETE | Admin can delete mentorship session review deemed inappropriate |
 
-HEROKU LINK: (https://yvesfreementor.herokuapp.com/)[link]
+HEROKU LINK: https://yvesfreementor.herokuapp.com
 
 
 ## To run this project 
