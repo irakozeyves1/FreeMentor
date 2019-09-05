@@ -55,7 +55,6 @@ like localhost:3000/api/v1
 | /api/v1/session/:sessionId/accept | PATCH |A mentor can accept a mentorship session request |
 | /api/v1/session/:sessionId/accept | PATCH |A mentor can reject a mentorship session request |
 | /api/v1/sessions | GET | get all session for user(menteee ) and for mentor |
-| /api/v1/sessions/:sessionId/review | POST |Review a mentor after a mentorship session|
 | /api/v1/sessions/:sessionId/review| DELETE | Admin can delete mentorship session review deemed inappropriate |
 
 ## To run this project 
