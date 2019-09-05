@@ -20,7 +20,7 @@ export const accept = (req, res) => {
 	if (accep > - 1) {
 		sessions[accep].status = 'Accept';
 
-		return res.status(202).send({
+		return res.status(200).send({
 			'status': 200,
 			'data': sessions[accep]
 		});

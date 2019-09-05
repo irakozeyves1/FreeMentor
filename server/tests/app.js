@@ -171,7 +171,7 @@ describe('Accept a session', () => {
 			.patch('/api/v1/sessions/1/accept')
 			.set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImlyYWtvemV5dmVzQGdtYWlsLmNvbSIsImlhdCI6MTU2NzMwNDQ2NH0.JflaoVizfciIfegtDzMY3m_q55QRjKEa0uYdQHyUB0o')
 			.end((err, res) => {
-				chai.expect(res).to.have.status(202);
+				chai.expect(res).to.have.status(200);
 				expect(res).to.be.an('object');
 				expect(res.body).to.have.property('data');
 				done();
