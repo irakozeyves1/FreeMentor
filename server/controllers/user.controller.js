@@ -1,11 +1,14 @@
 import { User, users } from '../models/user.model';
 import { genToken } from '../helpers/token.helper';
+import { Database } from '../database/database';
 
+const db = new Database();
 //Create user account
 
-export const signup = (req, res) => {
+export const signup = async (req, res) => {
 	const user = new User(users.length + 1,req.body.email, req.body.first_name, req.body.last_name, req.body.password, req.body.address, req.body.bio, req.body.occupation, req.body.expertise);
-	users.push(user);
+	// users.push(user);
+	await db.addUser(user);
 	const token = genToken(user.email);
 	return res.status(201).send({
 		'status': 201,

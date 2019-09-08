@@ -6,7 +6,12 @@ import userRoutes from './routes/user.route';
 import swaggerUi from 'swagger-ui-express';
 import swaggerDoc from './swagger.json';
 
+import { Database } from './database/database';
+
 dotenv.config();
+
+const db = new Database();
+db.createDb();
 
 const app = express();
 

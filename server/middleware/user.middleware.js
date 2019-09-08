@@ -2,15 +2,22 @@
 import { users } from '../models/user.model';
 import bcrypt from 'bcrypt';
 
+import { Database } from '../database/database';
+
+const db = new Database();
 // this function check if email of user is exist arleady into the system
 
-export const isEmailUsed = (req, res, next) => {
-	const user = users.find(user => user.email == req.body.email);
-	if (user) {
-		return res.status(401).send({
-			'status': 401,
+export const isEmailUsed = async (req, res, next) => {
+	//const user = users.find(user => user.email == req.body.email);
+
+	const result = await db.selectCount('users', 'email', req.body.email);
+	console.log(result);
+
+	if (result.rows[0].count !== '0') {
+		return res.status(409).send({
+			'status': 409,
 			'message': 'Email already exist',
-			'data': user.email
+			'data': req.body.email
 		});
 	}
 	next();
