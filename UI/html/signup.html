@@ -27,19 +27,28 @@
 	
 			<div class="bg-img">
 
-			  <form action="#" class="container1" method="post">
+			  <form action="signin.html" class="container1" method="post" id="myForm">
               <div class="signup">
 			   <h3>SignUp to Free Mentor<i class="fas fa-hand-holding-heart"></i></h3>
 			    </div>
-			    <input type="text" placeholder="First Name" name="email" id="fname" required onkeyup="lettersOnly(this)">
-			    <input type="text" placeholder="Last Name" name="email" id="lname" required onkeyup="lettersOnly(this)">
-			    <input type="text" placeholder="Email example:example@mail.com" name="email"  id="uemail" required onkeyup="lettersOnly1(this)">
-			    <input type="password" placeholder="Typer your Password" name="psw" id="pass" required onkeyup="lettersOnly1(this)">
-			    <input type="password" placeholder="Confirm Password" name="psw" id="pass1" required onkeyup="confirmPassword(this)" onkeyup="confirmPassword1(this)">
-			    <input type="text" placeholder="address eg: Kigali, Rwanda, Street" name="address" id="address1" required onkeyup="lettersOnly2(this)">
-			    <textarea id="message" name="subject" placeholder="Biography" style="height:60px" id="mess" required onkeyup="lettersOnly3(this)"></textarea>
-			   <input type="text" placeholder="Your Occupation" name="occupation" id="occupa" required onkeyup="lettersOnly(this)">
-			   <input type="text" placeholder="Your expertize" name="expertize"  id="expert" required onkeyup="lettersOnly2(this)">
+			    <input type="text" placeholder="First Name" name="email" id="fname" required >
+			    <input type="text" placeholder="Last Name" name="email" id="lname" required >
+			    <input type="text" placeholder="Email example:example@mail.com" name="email"  id="uemail" required >
+			    <input type="password" placeholder="Typer your Password" name="psw" id="pass" >
+      
+              <div id="message">
+              <h3>Password must contain the following:</h3>
+              <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+              <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+              <p id="number" class="invalid">A <b>number</b></p>
+              <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+              </div>
+			    
+			    <input type="password" placeholder="Confirm Password" name="psw" id="pass1" required >
+			    <input type="text" placeholder="address eg: Kigali, Rwanda, Street" name="address" id="address1" required >
+			    <textarea  name="subject" placeholder="Biography" style="height:60px" id="mess" required ></textarea>
+			   <input type="text" placeholder="Your Occupation" name="occupation" id="occupa" required >
+			   <input type="text" placeholder="Your expertize" name="expertize"  id="expert" required >
                <div id="error"></div>
 			   <br>
 			 <span class="">
