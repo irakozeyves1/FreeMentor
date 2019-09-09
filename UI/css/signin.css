@@ -86,7 +86,7 @@ ul.breadcrumb {
 
 /* Full-width input fields */
   input[type=text], input[type=password] {
-  width:87%;
+  width:84%;
   padding: 15px;
   margin: 5px 0 22px 0;
   border: none;
@@ -98,6 +98,17 @@ input[type=text]:focus, input[type=password]:focus {
   outline: none;
 }
 
+#email1{
+ background: url('../asset/icons/user.png')no-repeat 4px 5px #f1f1f1;
+ padding-left: 40px;
+  
+
+}
+#pass{
+ background: url('../asset/icons/lock.png')no-repeat 4px 5px #f1f1f1;
+ padding-left: 40px;
+
+}
 /* Set a style for the submit button */
 .btn {
   background-color:#5DADE2;
@@ -156,3 +167,7 @@ position: relative;
     width: 90%;
     display: block;
       }
+@media only screen and (max-width: 640px){
+  .container {
+      width: 360px;
+  } 
