@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
-import { users } from '../models/user.model';
+import Database  from '../db/db';
 
-export function verifyToken(req, res, next) {
+export const verifyToken = async (req, res, next) => {
 	const token = req.header('token');
 
 	if (!token) return res.status(401).send({
@@ -12,14 +12,15 @@ export function verifyToken(req, res, next) {
 		// eslint-disable-next-line no-undef
 		const verified = jwt.verify(token, process.env.KEY); // Verify provided user token if is still loged in
 
-		const u = users.find(u => u.email == verified.email);
-
+		// const u = users.find(u => u.email == verified.email);     
+		const u = await Database.selectBy('users', 'email', verified.email);
+		// eslint-disable-next-line require-atomic-updates
 		req.user = {
-			'token': verified,
-			'email': verified.email,
-			'role': u.role,
-			'id': u.Id,
-			'userFullName': `${u.first_name} ${u.last_name}`
+			token: verified,
+			email: verified.email,
+			role: u.rows[0].role,
+			id: u.rows[0].userid,
+			userFullName: `${u.first_name} ${u.last_name}`
 		}; // Store user token and role for letter uses
 		next(); // Let continue
 	} catch (error) {
@@ -28,4 +29,4 @@ export function verifyToken(req, res, next) {
 			'error': 'Invalid token!'
 		});
 	}
-}
+};
