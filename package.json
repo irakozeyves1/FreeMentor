@@ -4,10 +4,13 @@
   "description": "Free-mentor for young",
   "main": "./server/app.js",
   "scripts": {
-    "dev": "nodemon --exec babel-node ./server/server.js",
-    "start": "babel-node ./server/server.js",
-    "test": "nyc --reporter=text --reporter=html mocha server/tests/app.js --require @babel/polyfill --require @babel/register --timeout 10000 --exit",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls"
+    "dev": "cross-env NODE_ENV=development npm run createTable && cross-env NODE_ENV=development nodemon --exec babel-node ./server/server.js",
+    "start": "cross-env NODE_ENV=production npm run dropTables && cross-env NODE_ENV=production npm run createTable && cross-env NODE_ENV=production babel-node ./server/server.js",
+    "test": "cross-env NODE_ENV=test npm run dropTables && cross-env NODE_ENV=test npm run createTable && cross-env NODE_ENV=test nyc --reporter=text --reporter=html mocha server/test/manager.js --require @babel/polyfill --require @babel/register --timeout 10000 --exit",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "showCoverage": "start coverage/lcov-report/index.html",
+    "createTable": "node --require @babel/polyfill --require @babel/register server/db/createTable.js",
+    "dropTables": "node --require @babel/polyfill --require @babel/register server/db/dropTable.js"
   },
   "repository": {
     "type": "git",
@@ -36,17 +39,14 @@
     "body-parser": "^1.19.0",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
+    "cross-env": "^5.2.1",
     "dotenv": "^8.1.0",
     "eslint": "^6.2.2",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "mocha": "^6.2.0",
-    "moment": "^2.24.0",
-    "swagger": "^0.7.5",
-    "swagger-ui": "^3.23.8",
-    "swagger-ui-dist": "^3.23.8",
-    "swagger-ui-express": "^4.0.7",
-    "uuid": "^3.3.3"
+    "pg": "^7.12.1",
+    "swagger-ui-express": "^4.0.7"
   },
   "devDependencies": {
     "coveralls": "^3.0.6",
