@@ -1,19 +1,21 @@
-/* eslint-disable require-atomic-updates */
-import { users } from '../models/user.model';
 import bcrypt from 'bcrypt';
+import Database  from '../db/db';
 
-// this function check if email of user is exist arleady into the system
 
-export const isEmailUsed = (req, res, next) => {
-	const user = users.find(user => user.email == req.body.email);
-	if (user) {
-		return res.status(401).send({
-			'status': 401,
+
+export const isEmailUsed = async (req, res, next) => {
+	//const user = users.find(user => user.email == req.body.email);
+	const result = await Database.selectCount('users', 'email', req.body.email);
+
+	if (result.rows[0].count !== '0') {
+		return res.status(409).send({
+			'status': 409,
 			'message': 'Email already exist',
-			'data': user.email
+			'data': req.body.email,
 		});
 	}
 	next();
+	return 0;
 };
 
 // this function helps in hashing
@@ -27,21 +29,18 @@ export const hashPassword = async (req, res, next) => {
 };
 
 export const authanticate = async (req, res, next) => {
-	const user = users.find(user => user.email == req.body.email);
-	console.log(users);
-	if (user) {
-		const validPassword = await bcrypt.compare(req.body.password, user.password);
-		console.log(validPassword);
+	const user = await Database.selectBy('users','email', req.body.email);
+	if (user.rowCount > 0) {
+		const validPassword = await bcrypt.compare(req.body.password, user.rows[0].password);
 		if (validPassword) {
-			req.body.userId = user.userId;
+			next();
 		}
 		else {
-			return res.status(404).send({
-				'status': 404,
+			return res.status(401).send({
+				'status': 401,
 				'message': 'Password is not match, please try again.'
 			});
 		}
-		next();
 	} else {
 		return res.status(404).send({
 			'status': 404,
@@ -53,12 +52,25 @@ export const authanticate = async (req, res, next) => {
 
 /// this function  is checking if is admi entered into the system
 export const isAdmin = (req, res, next) => {
+	
 	if (req.user.role == 'Admin') {
 		next();
 	} else {
 		return res.status(403).send({
 			'status': 403,
 			'error': 'You are not Admin.'
+		});
+	}
+};
+
+export const isMentor = (req, res, next) => {
+	
+	if (req.user.role == 'Mentor') {
+		next();
+	} else {
+		return res.status(403).send({
+			'status': 403,
+			'error': 'You are not Mentor.'
 		});
 	}
 };
