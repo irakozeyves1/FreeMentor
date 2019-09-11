@@ -1,10 +1,17 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
 import { describe, it } from 'mocha';
+import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
 import server from '../app';
 
 const { expect } = chai;
 chai.use(chaiHttp);
+
+dotenv.config();
+
+const mentorToken = jwt.sign({email: 'anymail@gmail.com'}, process.env.KEY, { expiresIn: '1D' });
+
 
 describe('Welcome message', () => {
 	it('user should see welcome message', (done) => {
@@ -119,13 +126,12 @@ describe('The user account changed to a mentor', () => {
 describe('Get all mentor', () => {
 	it('should allow user to get all mentor', (done) => {
 		chai.request(server)
-			.get('/api/v1/mentor')
-			.set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImlyYWtvemV5dmVzQGdtYWlsLmNvbSIsImlhdCI6MTU2NzMwNDQ2NH0.JflaoVizfciIfegtDzMY3m_q55QRjKEa0uYdQHyUB0o')
+			.get('/api/v1/mentors')
+			.set('token', mentorToken)
 			.end((req, res) => {
-				console.log(res.body);
-				// expect(res).to.have.status(200);
-				// expect(res.body).to.have.property('data');
-				// expect(res.body).to.have.property('status').eql(200);
+				expect(res).to.have.status(200);
+				expect(res.body).to.have.property('data');
+				expect(res.body).to.have.property('status').eql(200);
 				done();
 			});
 	});
@@ -138,7 +144,6 @@ describe('Get all mentor by specif id', () => {
 			.get('/api/v1/mentors/2')
 			.set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImlyYWtvemV5dmVzQGdtYWlsLmNvbSIsImlhdCI6MTU2NzMwNDQ2NH0.JflaoVizfciIfegtDzMY3m_q55QRjKEa0uYdQHyUB0o')
 			.end((req, res) => {
-				
 				expect(res).to.have.status(200);
 				expect(res.body).to.have.property('data');
 				expect(res.body).to.have.property('status').eql(200);
@@ -147,13 +152,10 @@ describe('Get all mentor by specif id', () => {
 	});
 	it('No record found', (done) => {
 		chai.request(server)
-			.get('/api/v1/mentors/9')
+			.get('/api/v1/mentors/9687676')
 			.set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImlyYWtvemV5dmVzQGdtYWlsLmNvbSIsImlhdCI6MTU2NzMwNDQ2NH0.JflaoVizfciIfegtDzMY3m_q55QRjKEa0uYdQHyUB0o')
 			.end((req, res) => {
-				console.log(res.body);
-				//expect(res).to.have.status(404);
-				//expect(res.body).to.have.property('data');
-				//expect(res.body).to.have.property('status').eql(404);
+				expect(res).to.have.status(404);
 				done();
 			});
 	});

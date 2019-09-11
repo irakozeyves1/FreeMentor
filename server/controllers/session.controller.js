@@ -20,7 +20,6 @@ export const accept = async (req, res) => {
 
 	//const accep = sessions.findIndex(a => a.id == req.params.sessionId);
 	const accep = await Database.updateSession('sessions','status', 'Accept', 'sessionid', req.params.sessionId);
-	console.log(accep);
 	if (accep.rows[0]) {
 		return res.status(200).send({
 			'status': 200,
