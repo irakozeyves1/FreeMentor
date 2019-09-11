@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { signin, signup, updateMentor, mentors, getMentorId } from '../controllers/user.controller';
 import { validate } from '../middleware/validation.middleware';
-import { isEmailUsed, hashPassword, authanticate, isAdmin } from '../middleware/user.middleware';
+import { isEmailUsed, hashPassword, authanticate, isAdmin, isMentor } from '../middleware/user.middleware';
 import { verifyToken } from '../middleware/token.middleware';
 import { session, accept, reject,getSessionById, remove } from '../controllers/session.controller';
 
@@ -13,8 +13,8 @@ router.patch('/user/:userId', verifyToken, isAdmin, updateMentor);//Change a use
 router.get('/mentors', verifyToken, mentors);//Get all mentors
 router.get('/mentors/:userId',verifyToken ,getMentorId);//Get a specific mentor
 router.post('/sessions', verifyToken, session);//Create a mentorship session request
-router.patch('/sessions/:sessionId/accept', verifyToken, accept);//A mentor can accept a mentorship session request
-router.patch('/sessions/:sessionId/reject',verifyToken, reject);//A mentor can reject a mentorship session request
+router.patch('/sessions/:sessionId/accept', verifyToken,isMentor, accept);//A mentor can accept a mentorship session request
+router.patch('/sessions/:sessionId/reject',verifyToken,isMentor, reject);//A mentor can reject a mentorship session request
 
 // extra  api 
 router.get('/sessions', getSessionById);//Get all mentorship session requests both mentor / mentee
