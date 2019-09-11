@@ -1,8 +1,5 @@
-
-
 export class Session {
-	constructor(sessionId,mentorId, menteeId, questions, menteeEmail, status = 'pending') {
-		this.id = sessionId;
+	constructor(mentorId, menteeId, questions, menteeEmail, status = 'pending') {
 		this.mentorId = mentorId;
 		this.menteeId = menteeId;
 		this.questions = questions;
@@ -10,7 +7,3 @@ export class Session {
 		this.status = status;
 	}
 }
-
-
-export let sessions = [];
-

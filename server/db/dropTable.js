@@ -1,7 +1,5 @@
 import Database from './db';
 
-
-
 const dropTable = async () => {
 
 	const conn = Database.dbConnection();
@@ -10,9 +8,9 @@ const dropTable = async () => {
 
     DROP TABLE IF EXISTS users CASCADE;
 
-    DROP TABLE IF EXISTS bookings CASCADE;
+    DROP TABLE IF EXISTS sessions CASCADE;
 
-    DROP TABLE IF EXISTS trips CASCADE;
+    DROP TABLE IF EXISTS reviews CASCADE;
 
   `);
 
@@ -21,7 +19,5 @@ const dropTable = async () => {
 	return result;
 
 };
-
-
 
 dropTable();
