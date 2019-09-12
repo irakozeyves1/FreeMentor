@@ -10,7 +10,7 @@
 		},
 		"license": {
 			"name": "MIT",
-			"url": ""
+			"url": "https://yvesfreementor.herokuapp.com/"
 		}
 	},
 	"host": "yvesfreementor.herokuapp.com",
@@ -32,6 +32,7 @@
 	],
 	"schemes": [
 
+		"https",
 		"http"
 	],
 	"paths": {
