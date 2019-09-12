@@ -13,7 +13,7 @@
 			"url": ""
 		}
 	},
-	"host": "localhost:3000",
+	"host": "yvesfreementor.herokuapp.com",
 	"basePath": "/api/v1",
 	"tags": [
 		{
